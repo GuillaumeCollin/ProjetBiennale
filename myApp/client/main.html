@@ -1,0 +1,63 @@
+<head>
+  <title>myApp</title>
+</head>
+
+<body>
+  <h1>Welcome to My APP!</h1>
+
+  {{> hello}}
+  {{> items}}
+  {{> images}}
+
+</body>
+
+
+
+<template name="items">
+  <h1>Les items</h1>
+
+  <form>
+    <input type="text" id="ok" />
+    <button id="AjoutItem">Ajout</button>
+  </form>
+
+
+
+  <ul>
+  {{#each items}}
+    <li>{{name}} <span class="delete">[X]</span></li>
+
+  {{/each}}
+  </ul>
+
+</template>
+
+<template name="images">
+  <h1>Les images</h1>
+
+  <form>
+    <input type="file" id="test" accept="image/*" multiple />
+    <button id="AjoutImage">AjoutImage</button>
+    <img id="output"/>
+  </form>
+
+  <ul>
+  {{#each images}}
+    <li>{{name}} <span class="sup">[X]</span><span class="show">[V]</span></li>
+
+
+  {{/each}}
+
+  </ul>
+
+
+</template>
+
+
+
+
+<template name="hello">
+  <button>Click Me please</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
