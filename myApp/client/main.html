@@ -6,25 +6,26 @@
   <h1>Welcome to My APP!</h1>
 
   {{> hello}}
-  {{> items}}
+  {{> galeries}}
   {{> images}}
+  {{> auteurs}}
 
 </body>
 
 
 
-<template name="items">
-  <h1>Les items</h1>
+<template name="galeries">
+  <h1>Les Galeries</h1>
 
   <form>
     <input type="text" id="ok" />
-    <button id="AjoutItem">Ajout</button>
+    <button id="AjoutGaleries">Ajout</button>
   </form>
 
 
 
   <ul>
-  {{#each items}}
+  {{#each galeries}}
     <li>{{name}} <span class="delete">[X]</span></li>
 
   {{/each}}
@@ -50,6 +51,25 @@
 
   </ul>
 
+
+</template>
+
+<template name="auteurs">
+  <h1>Les Auteurs</h1>
+
+  <form>
+    <input type="text" id="oki" />
+    <button id="AjoutAuteurs">Ajout</button>
+  </form>
+
+
+
+  <ul>
+  {{#each auteurs}}
+    <li>{{name}} <span class="delete">[X]</span></li>
+
+  {{/each}}
+  </ul>
 
 </template>
 

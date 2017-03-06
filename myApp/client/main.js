@@ -4,15 +4,16 @@ Template.hello.onCreated(function helloOnCreated() {
   this.counter = new ReactiveVar(0);
 });
 
-Template.items.helpers({
+Template.galeries.helpers({
   counter() {
     return Template.instance().counter.get();
   },
 
 
-  items() {
-  	return Items.find()
+  galeries() {
+  	return Galeries.find()
   }
+
 });
 
 Template.images.helpers({
@@ -22,6 +23,15 @@ Template.images.helpers({
   }
 
 });
+
+
+Template.auteurs.helpers({
+
+  auteurs() {
+      return Auteurs.find()
+    }
+});
+
 
 Template.images.events({
   'submit': function(event, template){
@@ -34,7 +44,7 @@ Template.images.events({
             Images.insert({
               name: file.name,
               type: file.type,
-              dataUrl: reader.result
+              dataUrl: reader.result,
             });
           }
           reader.readAsDataURL(file);
@@ -48,23 +58,44 @@ Template.images.events({
   },
   'click .show'(event, instance) {
     window.open(this.dataUrl);
+    console.log(this);
     }
 });
 
-Template.items.events({
+Template.galeries.events({
   'click .delete'(event, instance) {
  	console.log(this)
  	Items.remove(this._id)
   },
-  'click #AjoutItem'(event, instance) {
+  'click #AjoutGaleries'(event, instance) {
   	event.preventDefault();
   	console.log("ca fonctionne")
   	var text=$("#ok").val();
   	if (text!="")
   	{
-  		Items.insert({name:text})
+  		Galeries.insert({name:text})
   		//$("#ok").val("")
   	}
   	console.log(text)
+  }
+});
+
+
+
+Template.auteurs.events({
+  'click .delete'(event, instance) {
+  console.log(this)
+  Items.remove(this._id)
+  },
+  'click #AjoutAuteurs'(event, instance) {
+    event.preventDefault();
+    console.log("ca fonctionne")
+    var text=$("#oki").val();
+    if (text!="")
+    {
+      Auteurs.insert({name:text})
+      //$("#ok").val("")
+    }
+    console.log(text)
   }
 });
