@@ -65,7 +65,7 @@ Template.images.events({
 Template.galeries.events({
   'click .delete'(event, instance) {
  	console.log(this)
- 	Items.remove(this._id)
+ 	Galeries.remove(this._id)
   },
   'click #AjoutGaleries'(event, instance) {
   	event.preventDefault();
@@ -85,7 +85,7 @@ Template.galeries.events({
 Template.auteurs.events({
   'click .delete'(event, instance) {
   console.log(this)
-  Items.remove(this._id)
+  Auteurs.remove(this._id)
   },
   'click #AjoutAuteurs'(event, instance) {
     event.preventDefault();
