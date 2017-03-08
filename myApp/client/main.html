@@ -9,7 +9,7 @@
   {{> galeries}}
   {{> images}}
   {{> auteurs}}
-
+  {{> piles}}
 </body>
 
 
@@ -66,6 +66,25 @@
 
   <ul>
   {{#each auteurs}}
+    <li>{{name}} <span class="delete">[X]</span></li>
+
+  {{/each}}
+  </ul>
+
+</template>
+
+<template name="piles">
+  <h1>Les Piles</h1>
+
+  <form>
+    <input type="text" id="oku" />
+    <button id="AjoutPiles">Ajout</button>
+  </form>
+
+
+
+  <ul>
+  {{#each piles}}
     <li>{{name}} <span class="delete">[X]</span></li>
 
   {{/each}}

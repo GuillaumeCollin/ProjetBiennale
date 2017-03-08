@@ -25,6 +25,15 @@ Template.images.helpers({
 });
 
 
+Template.piles.helpers({
+
+  piles()  {
+    return Piles.find()
+  }
+
+});
+
+
 Template.auteurs.helpers({
 
   auteurs() {
@@ -39,13 +48,15 @@ Template.images.events({
     if (window.File && window.FileReader && window.FileList && window.Blob) {
       _.each(template.find('#test').files, function(file) {
         if(file.size > 1){
+          var compteur = null;
           var reader = new FileReader();
           reader.onload = function(e) {
             Images.insert({
+              _id : file.name,
               name: file.name,
               type: file.type,
               dataUrl: reader.result,
-            });
+            })
           }
           reader.readAsDataURL(file);
         }
@@ -80,6 +91,12 @@ Template.galeries.events({
   }
 });
 
+Template.piles.events({
+  'click .delete'(event, instance) {
+  console.log(this)
+  Piles.remove(this._id)
+  }
+});
 
 
 Template.auteurs.events({

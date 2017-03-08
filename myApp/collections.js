@@ -1,6 +1,9 @@
 Images = new Mongo.Collection("images");
 Auteurs = new Mongo.Collection("auteurs");
 Galeries =  new Mongo.Collection("galeries");
+Piles =  new Mongo.Collection("piles");
+Planete =  new Mongo.Collection("planete");
+
 
 
 
@@ -22,6 +25,10 @@ if (Meteor.isServer) {
   Api.addCollection(Auteurs);
 
   Api.addCollection(Galeries);
+
+  Api.addCollection(Planete);
+
+   Api.addCollection(Piles);
 
 
 
