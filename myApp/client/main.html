@@ -13,6 +13,12 @@
 </body>
 
 
+<template name="listGaleries"> 
+ {{#each photos}}
+   <li> {{url}} <span class="delete">[X]</span></li>
+  {{/each}}
+</template>
+
 
 <template name="galeries">
   <h1>Les Galeries</h1>
@@ -26,12 +32,17 @@
 
   <ul>
   {{#each galeries}}
-    <li>{{name}} <span class="delete">[X]</span></li>
+    {{width}}-{{height}}
+    {{xFleche}}-{{yFleche}}
+
+    {{>listGaleries}} 
 
   {{/each}}
   </ul>
 
 </template>
+
+
 
 <template name="images">
   <h1>Les images</h1>
@@ -54,6 +65,20 @@
 
 </template>
 
+<template name="listAuteurs"> 
+ {{#each auteurs}}
+   <li> {{nom}} - {{x}} - {{y}}<span class="delete">[X]</span></li>
+  {{/each}}
+</template>
+
+<template name="listPiles"> 
+ {{#each piles}}
+   <li> {{auteur}} - {{x}} - {{y}} <span class="delete">[X]</span></li>
+  {{/each}}
+</template>
+
+
+
 <template name="auteurs">
   <h1>Les Auteurs</h1>
 
@@ -66,12 +91,15 @@
 
   <ul>
   {{#each auteurs}}
-    <li>{{name}} <span class="delete">[X]</span></li>
+
+    {{> listAuteurs}} 
 
   {{/each}}
   </ul>
 
 </template>
+
+
 
 <template name="piles">
   <h1>Les Piles</h1>
@@ -85,7 +113,8 @@
 
   <ul>
   {{#each piles}}
-    <li>{{name}} <span class="delete">[X]</span></li>
+
+    {{>listPiles}} 
 
   {{/each}}
   </ul>
