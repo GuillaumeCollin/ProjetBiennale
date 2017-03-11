@@ -1,3 +1,25 @@
+if (Meteor.isServer) {
+
+
+
+  Meteor.startup(function() {
+
+    return Meteor.methods({
+
+      removeAllGaleries: function() {
+
+        return Galeries.remove({});
+
+      }
+
+    });
+
+  });
+
+};
+
+
+
 
 Meteor.startup(() => {
   // code to run on server at startup
@@ -14,6 +36,11 @@ if (Planete.find().count() === 0) {
   }
   
 if (Galeries.find().count() === 0) {
+	 
+	for (i = 0, len = JsonGalerie.data.length; i < len; i++) { 
+
+   Galeries.insert(JsonGalerie.data[i])
+}
   }
 
 });

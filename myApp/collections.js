@@ -6,10 +6,7 @@ Planete =  new Mongo.Collection("planete");
 
 
 
-
 if (Meteor.isServer) {
-
-
   
 
   // Global API configuration
